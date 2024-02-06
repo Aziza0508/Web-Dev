@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #262626;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #3897f0;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #4fa3d1;
+    }
+
+    .forgot-password {
+      font-size: 12px;
+      color: #262626;
+      margin-top: 16px;
+    }
+
+    .or-divider {
+      margin: 20px 0;
+      position: relative;
+    }
+
+    .or-divider:before {
+      content: "";
+      border-top: 1px solid #dbdbdb;
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .or-text {
+      background-color: #fff;
+      position: relative;
+      z-index: 2;
+      padding: 0 10px;
+      font-size: 14px;
+      color: #8e8e8e;
+    }
+
+    .login-with-facebook {
+      margin-top: 20px;
+      color: #385185;
+      font-size: 14px;
+    }
+
+    .facebook-btn {
+      background-color: #385185;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .facebook-btn:hover {
+      background-color: #314770;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Instagram</h1>
+    <form action="#">
+      <label for="username">Номер телефона или имя пользователя </label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Пароль</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Вход</button>
+    </form>
+
+    <!-- <div class="forgot-password">Forgot password?</div> -->
+
+    <div class="or-divider">
+      <span class="or-text">ИЛИ</span>
+    </div>
+
+    <div class="login-with-facebook">Войти через Facebook</div>
+    <!-- <button class="facebook-btn">Continue with Facebook</button> -->
+    <div class="forgot-password">Забыли пароль?</div>
+  </div>
+
+</body>
+</html>
