@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 20px auto;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 8px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+    }
+
+    li {
+      list-style: none;
+      margin: 5px 0;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: grey;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Todo List</h1>
+    <input type="text" id="todoInput" placeholder="Add new todo">
+    <button onclick="addTodo()">Add</button>
+    <ul id="todoList">
+    </ul>
+  </div>
+  <script>
+    let todoList = [];
+
+    function addTodo() {
+      let inputField = document.getElementById("todoInput");
+      let inputValue = inputField.value.trim();
+      
+      if (inputValue !== "") {
+        todoList.push({ text: inputValue, done: false });
+        inputField.value = "";
+        renderTodos();
+      }
+    }
+
+    function toggleDone(index) {
+      todoList[index].done = !todoList[index].done;
+      renderTodos();
+    }
+
+    function deleteTodo(index) {
+      todoList.splice(index, 1);
+      renderTodos();
+    }
+
+    function renderTodos() {
+      let todoListContainer = document.getElementById("todoList");
+      todoListContainer.innerHTML = "";
+
+      todoList.forEach((todo, index) => {
+        let todoItem = document.createElement("li");
+        todoItem.textContent = todo.text;
+        if (todo.done) {
+          todoItem.classList.add("completed");
+        }
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = todo.done;
+        checkbox.addEventListener("change", () => toggleDone(index));
+        let deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => deleteTodo(index));
+        todoItem.appendChild(checkbox);
+        todoItem.appendChild(deleteButton);
+        todoListContainer.appendChild(todoItem);
+      });
+    }
+  </script>
+</body>
+</html>
